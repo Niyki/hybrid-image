@@ -1,2 +1,2 @@
-# Hybrid-Image-Java
-Simple script that creates a hybrid image using Java.
+# Hybrid Image
+Script that creates a hybrid image using Java.
