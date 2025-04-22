@@ -1,14 +1,11 @@
 package com.niki.hybridimage;
 
+import java.io.File;
+import java.io.IOException;
+
 import org.openimaj.image.DisplayUtilities;
 import org.openimaj.image.ImageUtilities;
 import org.openimaj.image.MBFImage;
-
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-
-
 
 public class App {
     public static void main( String[] args ) throws IOException {
@@ -23,5 +20,12 @@ public class App {
         DisplayUtilities.display(image2);
 
         DisplayUtilities.display(MyHybridImages.makeHybrid(image1, 2f, image2, 2.5f));
+
+        // Pause to keep the window open
+        try {
+            Thread.sleep(10000); // 10 seconds
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
