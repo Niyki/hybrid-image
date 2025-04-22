@@ -9,23 +9,18 @@ import org.openimaj.image.MBFImage;
 
 public class App {
     public static void main( String[] args ) throws IOException {
-        // Change path to desired low pass image (blurry)
-        File imageFile1 = new File("src/main/resources/einstein.bmp");
-        MBFImage image1 = ImageUtilities.readMBF(imageFile1);
-        DisplayUtilities.display(image1);
+        // Load the low-pass image (Change path to desired image)
+        File lowImageFile = new File("src/main/resources/einstein.bmp");
+        MBFImage lowImage = ImageUtilities.readMBF(lowImageFile);
+        DisplayUtilities.display(lowImage, "Low-Pass Image");
 
-        // Change path to desired high pass image (edges)
-        File imageFile2 = new File("src/main/resources/marilyn.bmp");
-        MBFImage image2 = ImageUtilities.readMBF(imageFile2);
-        DisplayUtilities.display(image2);
+        // Load the high-pass image (Change path to desired image)
+        File highImageFile = new File("src/main/resources/marilyn.bmp");
+        MBFImage highImage = ImageUtilities.readMBF(highImageFile);
+        DisplayUtilities.display(highImage, "High-Pass Image");
 
-        DisplayUtilities.display(MyHybridImages.makeHybrid(image1, 2f, image2, 2.5f));
-
-        // Pause to keep the window open
-        try {
-            Thread.sleep(10000); // 10 seconds
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        // Create and display hybrid image
+        MBFImage hybridImage = MyHybridImages.makeHybrid(lowImage, 2f, highImage, 2.5f);
+        DisplayUtilities.display(hybridImage, "Hybrid Image");
     }
 }
